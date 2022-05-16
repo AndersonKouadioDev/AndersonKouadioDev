@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Domaine-de-la-coulee-verte/precache-manifest.a62aa8eb037466decd050544c86668b9.js"
+  "/Domaine-de-la-coulee-verte/precache-manifest.fc51def833dd3cd2e11c6c76aeb69f3b.js"
 );
 
 workbox.clientsClaim();
