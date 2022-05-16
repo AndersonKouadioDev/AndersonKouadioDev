@@ -2,6 +2,7 @@
   "name": "dcv",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://AndersonKouadioDev.github.io/Domaine-de-la-coulee-verte",
   "dependencies": {
     "@date-io/date-fns": "^2.14.0",
     "@date-io/dayjs": "^2.14.0",
@@ -38,7 +39,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
