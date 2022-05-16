@@ -2,7 +2,7 @@
   "name": "dcv",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AndersonKouadioDev.github.io/Domaine-de-la-coulee-verte",
+  "homepage": "https://AndersonKouadioDev.github.io/Domaine-de-la-coulee-verte/build",
   "dependencies": {
     "@date-io/date-fns": "^2.14.0",
     "@date-io/dayjs": "^2.14.0",
