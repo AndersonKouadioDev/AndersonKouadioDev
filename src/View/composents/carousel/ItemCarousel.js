@@ -63,7 +63,7 @@ export default function ItemCarousel({ title, subtitle,img, sticker, children })
                     isActive ? isActiveStyle : undefined
                   }
                 >
-                  DCS Services
+                  DCV Services
                 </NavLink>
               </Stack>
             </Col>

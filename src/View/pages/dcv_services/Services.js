@@ -4,8 +4,8 @@ import './Services.css';
 export default function Services() {
   return (
     <div>
-      <Header title=" DCS SERVICES" />
-      DCS SERVICES
+      <Header title=" DCV SERVICES" />
+      DCV SERVICES
     </div>
   );
 }
