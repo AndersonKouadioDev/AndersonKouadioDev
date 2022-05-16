@@ -9,6 +9,7 @@ function App() {
   React.useEffect(() => {});
   return (
     <div>
+      {pathname == '/' ? <Carousel /> :null}
       <WebRoute />
     </div>
   );
