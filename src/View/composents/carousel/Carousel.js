@@ -5,7 +5,7 @@ import ItemCarousel from './ItemCarousel';
 // OWL
 import 'react-owl-carousel2/src/owl.carousel.css';
 
-// import 'react-owl-carousel2/src/owl.theme.default.css';
+import 'react-owl-carousel2/src/owl.theme.default.css';
 
 export default function Carousel() {
   const options = {
