@@ -10,7 +10,7 @@ import InputBase from '@mui/material/InputBase';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';
-
+import logo from '../../../images/logo.jpg'
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -53,7 +53,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Header({ title }) {
+export default function Header({ title, back }) {
   const styleHeader = {
     backgroundColor: '#6F7835',
     '&:hover': {
@@ -62,10 +62,10 @@ export default function Header({ title }) {
   };
   let navigate = useNavigate();
   function handleChange() {
-    navigate('/', { replace: true });
+    navigate(back, { replace: true });
   }
   return (
-    <Box sx={{ flexGrow: 1 }} style={{ boxShadow: "0px 0px 10px #00000016"}}>
+    <Box sx={{ flexGrow: 1 }} style={{ boxShadow: '0px 0px 10px #00000016' }}>
       <AppBar
         position="static"
         style={styleHeader}
@@ -85,9 +85,10 @@ export default function Header({ title }) {
           </IconButton>
           <img
             className="logo"
-            src="assets/images/principal/logo.jpg"
+            src={logo}
             alt="logo"
-            style={{ marginRight: 20 }}
+            style={{ marginRight: 20, cursor: 'pointer' }}
+            onClick={handleChange}
           />
           <Typography
             variant="h6"

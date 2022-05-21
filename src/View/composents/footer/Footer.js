@@ -6,7 +6,6 @@ import IconButton from '@mui/material/IconButton';
 import Facebook from '@mui/icons-material/Facebook';
 import LinkedIn from '@mui/icons-material/LinkedIn';
 import Instagram from '@mui/icons-material/Instagram';
-import MailIcon from '@mui/icons-material/Mail';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
@@ -22,14 +21,14 @@ export default function Footer() {
             <div className="info_detail">
               <h4>Qui sommes-nous</h4>
               <p>
-                Vitae aut explicabo fugit facere alias distinctio, exem commodi
-                mollitia minusem dignissimos atque asperiores incidunt vel
-                voluptate iste
+                Situé dans la commune de Cocody Angré 7ème tranche dans la
+                ruelle BP V 56, le DCV est un hôtel urbain de 3étoiles...
               </p>
               <Stack className="info_social" direction="horizontal">
                 <a
                   href="https://www.facebook.com/domainedelacouleeverte"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <IconButton>
                     <Facebook sx={{ fontSize: 40, color: 'white' }} />
@@ -38,6 +37,7 @@ export default function Footer() {
                 <a
                   href="https://www.linkedin.com/company/domainde-de-la-coulee-verte/?viewAsMember=true"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <IconButton>
                     <LinkedIn sx={{ fontSize: 40, color: 'white' }} />
@@ -46,6 +46,7 @@ export default function Footer() {
                 <a
                   href="https://www.instagram.com/domainedelacouleeverte/"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <IconButton>
                     <Instagram sx={{ fontSize: 40, color: 'white' }} />
@@ -56,7 +57,7 @@ export default function Footer() {
           </div>
           <div className="col-md-6 col-lg-4 info-col">
             <div className="info_contact">
-              <h4>Addresse</h4>
+              <h4>Adresse</h4>
               <div className="contact_link_box">
                 <p>
                   <LocationOnIcon />
@@ -67,7 +68,6 @@ export default function Footer() {
                   <span>Tel (+225) 07 68 36 37 37 | 07 77 39 72 37</span>
                 </p>
                 <p>
-                  <MailIcon />
                   <span>Info@domainedelacouleeverte.com</span>
                 </p>
               </div>
@@ -88,10 +88,8 @@ export default function Footer() {
       <footer className="footer_section">
         <div className="container">
           <p>
-            &copy; <span id="displayYear"></span> Tout Droit Réservé Par &nbsp;
-            <a href="https://www.facebook.com/andyjojoofficial-115063973195765">
-              Andy Jojo Dev
-            </a>
+            &copy; <span id="displayYear"></span> Tout Droit Réservé Par Le
+            Domaine de la Coulée Verte &nbsp;
           </p>
         </div>
       </footer>

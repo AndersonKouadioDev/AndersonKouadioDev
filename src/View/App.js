@@ -3,15 +3,17 @@ import Carousel from './composents/carousel/Carousel';
 import { useLocation } from 'react-router-dom';
 
 import WebRoute from '../Route/WebRoute';
+import Container from 'react-bootstrap/Container';
+
 function App() {
   const sampleLocation = useLocation();
   const pathname = sampleLocation.pathname;
   React.useEffect(() => {});
   return (
-    <div>
-      {pathname == '/' ? <Carousel /> : null}
+    <Container fluid>
+      {pathname === '/' ? <Carousel /> : null}
       <WebRoute />
-    </div>
+    </Container>
   );
 }
 

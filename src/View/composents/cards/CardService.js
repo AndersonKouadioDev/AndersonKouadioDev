@@ -5,19 +5,19 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
-import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useNavigate } from 'react-router-dom';
 
-export default function CardService({ img, title, content }) {
+
+export default function CardService({ img, title }) {
   let navigate = useNavigate();
   function handleChange() {
-    navigate('/dcv_services', { replace: true });
+    navigate('/biens_DCV', { replace: true });
   }
   const styleBtn = {
     color: '#white',
-    marginLeft: 2,
+    marginLeft: '5px',
     '&:hover': {
       backgroundColor: '#6F7835',
       color: 'white',
@@ -44,15 +44,9 @@ export default function CardService({ img, title, content }) {
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div" sx={styleTitle}>
+          <Typography gutterBottom variant="h6" component="div" sx={styleTitle}>
             {title}
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'white' }}>
-            {content}
-          </Typography>
-        </CardContent>
-        <CardActions style={{ backgroundColor: '#6F7835' }}>
-          <IconButton
+            <IconButton
             edge="start"
             color="inherit"
             aria-label="go services"
@@ -61,7 +55,8 @@ export default function CardService({ img, title, content }) {
           >
             <ChevronRightIcon />
           </IconButton>
-        </CardActions>
+          </Typography>
+        </CardContent>
       </CardActionArea>
     </Card>
   );

@@ -18,84 +18,74 @@ export default function Carousel() {
   };
   const data = [
     {
-      title: 'Lorem ipsum dolor sit amet',
-      subtitle: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Un oasis dans la ville',
       img: 'assets/images/carousel/c1.jpg',
-      sticker: 'Divertissement',
-      children:
-        'Facere repellat inventore corporis ratione eius mollitia numquam explicabo fuga ipsa voluptates obcaecati, voluptate, impedit, blanditiis aut facilis nobis recusandae ducimus cum ex molestiae aspernatur natus! Eos, excepturi quis autem dolorum minima accusamus quam laborum iste animi dolore vero vitae nobis repudiandae molestiae',
+      sticker: 'Abidjan',
+      subtitle:
+        "Leader du tourisme de proximité en Côte d'Ivoire.",
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
-      subtitle: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Un oasis dans la ville',
       img: 'assets/images/carousel/c2.jpg',
-      sticker: 'Divertissement',
-      children:
-        'Facere repellat inventore corporis ratione eius mollitia numquam explicabo fuga ipsa voluptates obcaecati, voluptate, impedit, blanditiis aut facilis nobis recusandae ducimus cum ex molestiae aspernatur natus! Eos, excepturi quis autem dolorum minima accusamus quam laborum iste animi dolore vero vitae nobis repudiandae molestiae',
+      sticker: 'Abidjan',
+      subtitle:
+        "Cadre enchanteur avec un beau jardin...",
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
-      subtitle: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Un oasis dans la ville',
       img: 'assets/images/carousel/c3.jpg',
-      sticker: 'Divertissement',
-      children:
-        'Facere repellat inventore corporis ratione eius mollitia numquam explicabo fuga ipsa voluptates obcaecati, voluptate, impedit, blanditiis aut facilis nobis recusandae ducimus cum ex molestiae aspernatur natus! Eos, excepturi quis autem dolorum minima accusamus quam laborum iste animi dolore vero vitae nobis repudiandae molestiae',
+      sticker: 'Abidjan',
+      subtitle:
+        "Votre résidence hôtelière prête à vous accueillir pour passer d'agréables moments de détente et de repos.",
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
-      subtitle: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Un oasis dans la ville',
       img: 'assets/images/carousel/c4.jpg',
-      sticker: 'Divertissement',
-      children:
-        'Facere repellat inventore corporis ratione eius mollitia numquam explicabo fuga ipsa voluptates obcaecati, voluptate, impedit, blanditiis aut facilis nobis recusandae ducimus cum ex molestiae aspernatur natus! Eos, excepturi quis autem dolorum minima accusamus quam laborum iste animi dolore vero vitae nobis repudiandae molestiae',
+      sticker: 'Abidjan',
+      subtitle:
+        "Leader du tourisme de proximité en Côte d'Ivoire.",
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
-      subtitle: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Un oasis dans la ville',
       img: 'assets/images/carousel/c5.jpg',
-      sticker: 'Divertissement',
-      children:
-        'Facere repellat inventore corporis ratione eius mollitia numquam explicabo fuga ipsa voluptates obcaecati, voluptate, impedit, blanditiis aut facilis nobis recusandae ducimus cum ex molestiae aspernatur natus! Eos, excepturi quis autem dolorum minima accusamus quam laborum iste animi dolore vero vitae nobis repudiandae molestiae',
+      sticker: 'Abidjan',
+      subtitle:
+        "Cadre enchanteur avec un beau jardin...",
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
-      subtitle: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Un oasis dans la ville',
       img: 'assets/images/carousel/c6.jpg',
-      sticker: 'Divertissement',
-      children:
-        'Facere repellat inventore corporis ratione eius mollitia numquam explicabo fuga ipsa voluptates obcaecati, voluptate, impedit, blanditiis aut facilis nobis recusandae ducimus cum ex molestiae aspernatur natus! Eos, excepturi quis autem dolorum minima accusamus quam laborum iste animi dolore vero vitae nobis repudiandae molestiae',
+      sticker: 'Abidjan',
+      subtitle:
+        "Votre résidence hôtelière prête à vous accueillir pour passer d'agréables moments de détente et de repos.",
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
-      subtitle: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Un oasis dans la ville',
       img: 'assets/images/carousel/c7.jpg',
-      sticker: 'Divertissement',
-      children:
-        'Facere repellat inventore corporis ratione eius mollitia numquam explicabo fuga ipsa voluptates obcaecati, voluptate, impedit, blanditiis aut facilis nobis recusandae ducimus cum ex molestiae aspernatur natus! Eos, excepturi quis autem dolorum minima accusamus quam laborum iste animi dolore vero vitae nobis repudiandae molestiae',
+      sticker: 'Abidjan',
+      subtitle:
+        "Leader du tourisme de proximité en Côte d'Ivoire.",
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
-      subtitle: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Un oasis dans la ville',
       img: 'assets/images/carousel/c8.jpg',
-      sticker: 'Divertissement',
-      children:
-        'Facere repellat inventore corporis ratione eius mollitia numquam explicabo fuga ipsa voluptates obcaecati, voluptate, impedit, blanditiis aut facilis nobis recusandae ducimus cum ex molestiae aspernatur natus! Eos, excepturi quis autem dolorum minima accusamus quam laborum iste animi dolore vero vitae nobis repudiandae molestiae',
+      sticker: 'Abidjan',
+      subtitle:
+        "Cadre enchanteur avec un beau jardin...",
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
-      subtitle: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Un oasis dans la ville',
       img: 'assets/images/carousel/c9.jpg',
-      sticker: 'Divertissement',
-      children:
-        'Facere repellat inventore corporis ratione eius mollitia numquam explicabo fuga ipsa voluptates obcaecati, voluptate, impedit, blanditiis aut facilis nobis recusandae ducimus cum ex molestiae aspernatur natus! Eos, excepturi quis autem dolorum minima accusamus quam laborum iste animi dolore vero vitae nobis repudiandae molestiae',
+      sticker: 'Abidjan',
+      subtitle:
+        "Votre résidence hôtelière prête à vous accueillir pour passer d'agréables moments de détente et de repos.",
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
-      subtitle: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      title: 'Un oasis dans la ville',
       img: 'assets/images/carousel/c10.jpg',
-      sticker: 'Divertissement',
-      children:
-        'Facere repellat inventore corporis ratione eius mollitia numquam explicabo fuga ipsa voluptates obcaecati, voluptate, impedit, blanditiis aut facilis nobis recusandae ducimus cum ex molestiae aspernatur natus! Eos, excepturi quis autem dolorum minima accusamus quam laborum iste animi dolore vero vitae nobis repudiandae molestiae',
+      sticker: 'Abidjan',
+      subtitle:
+        "Leader du tourisme de proximité en Côte d'Ivoire.",
     },
   ];
   return (
@@ -107,11 +97,10 @@ export default function Carousel() {
         {data.map((item, index) => (
           <ItemCarousel
             title={item.title}
-            subtitle={item.subtitle}
             img={item.img}
             sticker={item.sticker}
+           subtitle={ item.subtitle}
           >
-            {item.children}
           </ItemCarousel>
         ))}
       </OwlCarousel>

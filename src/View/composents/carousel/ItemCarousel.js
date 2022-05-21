@@ -2,17 +2,26 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import { styled } from '@mui/material/styles';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
-import { Outlet, NavLink, useLocation } from 'react-router-dom';
+import Tooltip, { tooltipClasses }  from '@mui/material/Tooltip';
+import { NavLink } from 'react-router-dom';
 import './Carousel.css';
 // Icons
 import IconButton from '@mui/material/IconButton';
 import Facebook from '@mui/icons-material/Facebook';
 import LinkedIn from '@mui/icons-material/LinkedIn';
 import Instagram from '@mui/icons-material/Instagram';
+import MailIcon from '@mui/icons-material/Mail';
+import PhoneIcon from '@mui/icons-material/Phone';
 
-export default function ItemCarousel({ title, subtitle,img, sticker, children }) {
+export default function ItemCarousel({
+  title,
+  subtitle,
+  img,
+  sticker,
+}) {
   const styleBtn = {
     backgroundColor: '#6F7835',
     '&:hover': {
@@ -21,20 +30,26 @@ export default function ItemCarousel({ title, subtitle,img, sticker, children })
   };
   const isActiveStyle = {
     color: '#FFF',
-    fontWeight:700,
-    border:"1px solid white",
-    padding:2,
-    paddingTop:0,
-    borderRadius:10,
-    BoxShadow:" 0px 0px 5px black",
-
+    fontWeight: 700,
+    border: '1px solid white',
+    padding: 2,
+    paddingTop: 0,
+    borderRadius: 10,
+    BoxShadow: ' 0px 0px 5px black',
   };
+  const LightTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: "#6F7835",
+      color: 'rgba(225, 225, 225)',
+      boxShadow: theme.shadows[1],
+      fontSize: 11,
+    },
+  }));
   return (
     <div className="item">
-      <div
-        className="img"
-        style={{ backgroundImage:`url(${img})`}}
-      ></div>
+      <div className="img" style={{ backgroundImage: `url(${img})` }}></div>
       <div className="content">
         <Container fluid="md">
           <Row>
@@ -54,23 +69,23 @@ export default function ItemCarousel({ title, subtitle,img, sticker, children })
                     isActive ? isActiveStyle : undefined
                   }
                 >
-                  Apropos
+                  Apropos du DCV
                 </NavLink>
                 <NavLink
-                  to="dcv_services"
+                  to="/biens_DCV"
                   className="menu-item"
                   style={({ isActive }) =>
                     isActive ? isActiveStyle : undefined
                   }
                 >
-                  DCV Services
+                  Nos Biens
                 </NavLink>
               </Stack>
             </Col>
             <Col>
-              <div className="reservation">
-                <Button variant="contained" sx={styleBtn}>
-                  Reservation
+              <div className="btn_reservation">
+                <Button variant="contained" color="primary">
+                  Langue
                 </Button>
               </div>
             </Col>
@@ -79,12 +94,11 @@ export default function ItemCarousel({ title, subtitle,img, sticker, children })
             <Col md={8}>
               <Stack className="partie1" gap={4}>
                 <div className="etiquette">
-                  Etiquette <span className="disable">{'>' + sticker}</span>
+                  DCV <span className="disable">{'>' + sticker}</span>
                 </div>
                 <div className="title">{title}</div>
                 <div className="subtitle">
                   <p className="header">{subtitle}</p>
-                  {children}
                 </div>
               </Stack>
             </Col>
@@ -94,6 +108,7 @@ export default function ItemCarousel({ title, subtitle,img, sticker, children })
                   <a
                     href="https://www.facebook.com/domainedelacouleeverte"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <IconButton>
                       <Facebook sx={{ fontSize: 40, color: 'white' }} />
@@ -102,6 +117,7 @@ export default function ItemCarousel({ title, subtitle,img, sticker, children })
                   <a
                     href="https://www.linkedin.com/company/domainde-de-la-coulee-verte/?viewAsMember=true"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <IconButton>
                       <LinkedIn sx={{ fontSize: 40, color: 'white' }} />
@@ -110,11 +126,22 @@ export default function ItemCarousel({ title, subtitle,img, sticker, children })
                   <a
                     href="https://www.instagram.com/domainedelacouleeverte/"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <IconButton>
                       <Instagram sx={{ fontSize: 40, color: 'white' }} />
                     </IconButton>
                   </a>
+                  <IconButton>
+                    <LightTooltip title="Info@domainedelacouleeverte.com">
+                      <MailIcon sx={{ fontSize: 40, color: 'white' }} />
+                    </LightTooltip>
+                  </IconButton>
+                  <IconButton>
+                    <LightTooltip title="Tel (+225) 07 68 36 37 37 | 07 77 39 72 37">
+                      <PhoneIcon sx={{ fontSize: 40, color: 'white' }} />
+                    </LightTooltip>
+                  </IconButton>
                 </Stack>
               </div>
             </Col>

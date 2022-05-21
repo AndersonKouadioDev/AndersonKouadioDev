@@ -9,7 +9,6 @@ export default function Temoignage() {
       message:
         "Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by",
       name: 'Anderson Kouadio',
-      name: 'Anderson Kouadio',
       jo: 'Développeur',
     },
     {
@@ -17,14 +16,12 @@ export default function Temoignage() {
       message:
         "Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by",
       name: 'Anderson Kouadio',
-      name: 'Anderson Kouadio',
       jo: 'Développeur',
     },
     {
       avatar: 'assets/images/carousel/c3.jpg',
       message:
         "Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by",
-      name: 'Anderson Kouadio',
       name: 'Anderson Kouadio',
       jo: 'Développeur',
     },
@@ -36,7 +33,7 @@ export default function Temoignage() {
     >
       <div className="container ">
         <div className="heading_container heading_center">
-          <h2>Les Témoignages</h2>
+          <h2>Notre obsession, le client!</h2>
         </div>
         <div className="row">
           {data.map((item, index) => (
