@@ -6,16 +6,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import Footer from '../../composents/footer/Footer'
+import Footer from '../../composents/footer/Footer';
 export default function About() {
   return (
     <div
       className="aboutpage"
       style={{ backgroundImage: `url(assets/images/carousel/c10.jpg)` }}
     >
-      <Header title="QUI SOMMES-NOUS ?" back='/' />
+      <Header title="QUI SOMMES-NOUS ?" back="/" />
       {/* About */}
-      <div style={{ paddingTop: 20, backgroundColor: 'white' }}>
+      <div className='section' style={{backgroundColor: 'white' }}>
         <Container>
           <Row
             style={{
@@ -53,7 +53,7 @@ export default function About() {
       {/* Fin */}
 
       {/* Debut */}
-      <div className="slogan">
+      <div className="slogan section">
         <Container>
           <Row>
             <Col>
@@ -90,7 +90,7 @@ export default function About() {
       </div>
       {/* Fin */}
 
-      <div className="hotellerie">
+      <div className="hotellerie section">
         {/* Debut */}
         <Row
           style={{
@@ -124,7 +124,7 @@ export default function About() {
       </div>
 
       {/* Debut */}
-      <div className="reservation">
+      <div className="reservation section">
         <Row
           style={{
             margingTop: '20px',
@@ -156,49 +156,44 @@ export default function About() {
       </div>
       {/* Fin */}
 
-      <div className='autre'>
-              {/* Debut */}
-      <Row
-        style={{
-          margingTop: '20px',
-          alignItems: 'center',
-          justifyContent: 'space-evenly',
-        }}
-      >
-        <Col sm={6} md={5}>
-          <Typography
-            variant="body1"
-            style={{ color: '#FFF', textAlign: 'justify' }}
-          >
-            Une salle de réunion modulaire avec une capacité de 100 pax et 200
-            pax en fonction du style adopté entièrement équipée d'un matériel
-            multimédia et audiovisuel avec une vue imprenable sur la nature et
-            la piscine.
-          </Typography>
-          <Divider />
-          <Typography
-            variant="body1"
-            style={{ color: '#FFF', textAlign: 'justify' }}
-          >
-            D'un jardin avec une capacité de 300 personnes pouvant accueillir
-            concert privé, diner ouvert, mariage et tous autres festivités sur
-            mesure avec un service de qualité et de proximité alliant
-            raffinement et discrétion.
-          </Typography>
-        </Col>
-        <Col sm={6} md={5}>
-          <img
-            src="assets/images/carousel/c7.jpg"
-            alt="logo2"
-            width="100%"
-          />
-        </Col>
-      </Row>
-      {/* Fin */}
+      <div className="autre section">
+        {/* Debut */}
+        <Row
+          style={{
+            margingTop: '20px',
+            alignItems: 'center',
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <Col sm={6} md={5}>
+            <Typography
+              variant="body1"
+              style={{ color: '#FFF', textAlign: 'justify' }}
+            >
+              Une salle de réunion modulaire avec une capacité de 100 pax et 200
+              pax en fonction du style adopté entièrement équipée d'un matériel
+              multimédia et audiovisuel avec une vue imprenable sur la nature et
+              la piscine.
+            </Typography>
+            <Divider />
+            <Typography
+              variant="body1"
+              style={{ color: '#FFF', textAlign: 'justify' }}
+            >
+              D'un jardin avec une capacité de 300 personnes pouvant accueillir
+              concert privé, diner ouvert, mariage et tous autres festivités sur
+              mesure avec un service de qualité et de proximité alliant
+              raffinement et discrétion.
+            </Typography>
+          </Col>
+          <Col sm={6} md={5}>
+            <img src="assets/images/carousel/c7.jpg" alt="logo2" width="100%" />
+          </Col>
+        </Row>
+        {/* Fin */}
       </div>
       {/* Fin */}
-      <Footer/>
+      <Footer />
     </div>
-
   );
 }

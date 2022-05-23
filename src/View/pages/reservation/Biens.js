@@ -1,4 +1,7 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getChambre } from '../../../redux/actions/a_chambres';
+import { getCategorie } from '../../../redux/actions/a_categories';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../composents/header/Header';
 import Footer from '../../composents/footer/Footer';
 import AppBar from '@mui/material/AppBar';
@@ -7,19 +10,28 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import './reservation.css';
-import { biens } from '../../../data/biens';
 import CardBien from './CardBien';
 import Typography from '@mui/material/Typography';
 
 export default function FullWidthTabs() {
-  const [value, setValue] = React.useState(0);
+  const dispatch = useDispatch();
 
+  const { chambres } = useSelector((state) => state.chambres);
+  const { categories } = useSelector((state) => state.categories);
+  useEffect(() => {
+    dispatch(getChambre());
+    dispatch(getCategorie());
+  }, [dispatch]);
+
+  const [value, setValue] = useState(0);
+  const selected_chambres = chambres.filter((chambre) => chambre.categorie_id == categories[value].id);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   return (
     <>
-      <Header title="NOS BIENS" back='/' />
+      <Header title="NOS BIENS" back="/" />
       <Box sx={{ bgcolor: 'background.paper', marginBottom: 5 }}>
         <AppBar position="static" sx={{ backgroundColor: '#6F7835' }}>
           <Tabs
@@ -27,34 +39,29 @@ export default function FullWidthTabs() {
             onChange={handleChange}
             variant="scrollable"
             scrollButtons="auto"
+            allowScrollButtonsMobile
             aria-label="scrollable auto tabs example"
             indicatorColor="secondary"
             textColor="inherit"
           >
-            <Tab label="Suite exécutive" />
-            <Tab label="Suite Junior" />
-            <Tab label="Chambre deluxe" />
-            <Tab label="Chambre supérieure 1" />
-            <Tab label="Chambre supérieure 2" />
-            <Tab label="Studio 1" />
-            <Tab label="Studio 2" />
-            <Tab label="Studio deluxe" />
-            <Tab label="Chambre standard 1" />
-            <Tab label="Chambre standard 2" />
-            <Tab label="Chambre standard 3" />
+            {categories
+              ? categories.map((categorie, index) => (
+                  <Tab label={categorie.label} key={index} />
+                ))
+              : null}
           </Tabs>
         </AppBar>
         <Box sx={{ flexGrow: 1, marginTop: 2, paddingX: { sm: 2, md: 8 } }}>
-          {biens[value] && (
-            <Typography sx={{ paddingY: 2 }} variant="subtitle">
+          {selected_chambres && (
+            <Typography sx={{ paddingY: 2 }} variant="h6">
               Classement par ordre de pertinence
             </Typography>
           )}
           <Grid container spacing={2}>
-            {biens[value]
-              ? biens[value].map((bien, index) => (
+            {selected_chambres
+              ? selected_chambres.map((chambre, index) => (
                   <Grid item xs={12} sm={4} md={3} key={index}>
-                    <CardBien bien={bien} />
+                    <CardBien chambre={chambre} />
                   </Grid>
                 ))
               : null}

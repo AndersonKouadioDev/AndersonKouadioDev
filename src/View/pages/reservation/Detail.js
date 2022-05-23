@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getChambre } from '../../../redux/actions/a_chambres';
+import { getCategorie } from '../../../redux/actions/a_categories';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../composents/header/Header';
 import Footer from '../../composents/footer/Footer';
 import Calendar from '../../composents/calendar/Calendar';
@@ -8,7 +11,6 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import { Navigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { biens } from '../../../data/biens';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -21,15 +23,22 @@ import RoomIcon from '@mui/icons-material/Room';
 import TextField from '@mui/material/TextField';
 
 export default function Detail() {
+  const dispatch = useDispatch();
+
   let params = useParams();
 
-  const datas = biens.find((data) =>
-    data[0].categorie.replace(/ /g, '_').includes(params.categorie)
+  const { chambres } = useSelector((state) => state.chambres);
+  const { categories } = useSelector((state) => state.categories);
+  useEffect(() => {
+    dispatch(getChambre());
+    dispatch(getCategorie());
+  }, [dispatch]);
+
+  const chambre = chambres.find(
+    (chambre) => chambre.id === parseInt(params.id)
   );
 
-  const bien = datas.find((elt) => elt.id === parseInt(params.id));
-  console.log(bien);
-  return bien ? (
+  return chambre ? (
     <>
       <Header title="RESERVATIONS" back="/biens_DCV" />
       <Container>
@@ -39,23 +48,23 @@ export default function Detail() {
             paddingY: { xs: 0, sm: 2, md: 3 },
           }}
         >
-          <Typography variant="h5">{bien.nom}</Typography>
+          <Typography variant="h5">{chambre.nom}</Typography>
           <Typography variant="subtitle1">
-            <b> {bien.vote} </b>
+            <b> {chambre.vote} </b>
             <StarRateIcon
               fontSize="small"
               style={{ transform: 'translateY(-2px)', marginX: 2 }}
             />
             <a href="" style={{ marginLeft: '10px', color: 'black' }}>
-              {bien.commentaires.length > 0
-                ? bien.commentaires.length + ' commentaires'
-                : bien.commentaires.length + ' commentaire'}{' '}
+              {chambre.commentaires.length > 0
+                ? chambre.commentaires.length + ' commentaires'
+                : chambre.commentaires.length + ' commentaire'}{' '}
             </a>
             <RoomIcon
               fontSize="small"
               style={{ transform: 'translateY(-2px)', marginX: 2 }}
             />
-            {bien.adresse}
+            {chambre.adresse}
           </Typography>
         </Box>
         <Box sx={{ paddingX: { xs: 0, sm: 2 } }}>
@@ -68,12 +77,12 @@ export default function Detail() {
                   sm={12}
                   md={6}
                   component="img"
-                  src={'/' + bien.images[0]}
+                  src={'/' + chambre.images[0]}
                   alt="image1"
                 ></Grid>
                 <Grid item xs={12} sm={12} md={6}>
                   <Grid container spacing={1}>
-                    {bien.images.map(
+                    {chambre.images.map(
                       (elt, id) =>
                         id > 0 && (
                           <Grid
@@ -101,18 +110,18 @@ export default function Detail() {
             paddingY: { xs: 0, sm: 2, md: 3 },
           }}
         >
-          <Typography variant="h5">{bien.description}</Typography>
+          <Typography variant="h5">{chambre.description}</Typography>
           <Typography variant="subtitle1">
-            {bien.nb_max_personne > 1
-              ? bien.nb_max_personne + ' voyageurs | '
-              : bien.nb_max_personne + ' voyageur | '}
-            {bien.nb_chambre > 1
-              ? bien.nb_chambre + ' chambres | '
-              : bien.nb_chambre + ' chambre | '}
+            {chambre.nb_max_personne > 1
+              ? chambre.nb_max_personne + ' voyageurs | '
+              : chambre.nb_max_personne + ' voyageur | '}
+            {chambre.nb_chambre > 1
+              ? chambre.nb_chambre + ' chambres | '
+              : chambre.nb_chambre + ' chambre | '}
 
-            {bien.nb_salle_bain > 1
-              ? bien.nb_salle_bain + ' salles de bain '
-              : bien.nb_salle_bain + ' salle de bain'}
+            {chambre.nb_salle_bain > 1
+              ? chambre.nb_salle_bain + ' salles de bain '
+              : chambre.nb_salle_bain + ' salle de bain'}
           </Typography>
         </Box>
         {/* Reservation */}
@@ -129,7 +138,7 @@ export default function Detail() {
             >
               Réserver ici
             </Typography>
-            <Divider sx={{marginBottom:2}} />
+            <Divider sx={{ marginBottom: 2 }} />
           </Col>
           <Col>
             <Box

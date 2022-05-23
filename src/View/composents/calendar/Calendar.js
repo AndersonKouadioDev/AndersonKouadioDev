@@ -39,7 +39,7 @@ export default function Calendar() {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <StaticDateRangePicker
-        displayStaticWrapperAs="desktop"
+        displayStaticWrapperAs="mobile"
         label="date range"
         value={value}
         onChange={(newValue) => setValue(newValue)}

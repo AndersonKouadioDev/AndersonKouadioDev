@@ -11,7 +11,7 @@ function WebRoute() {
       <Route path="/" element={<Home />} />
       <Route path="/qui_sommes_nous" element={<About />} />
       <Route path="/biens_DCV" element={<Biens />} />
-      <Route path="/reservation/:categorie/:id" element={<Detail />} />
+      <Route path="/reservation/:id" element={<Detail />} />
       <Route
         path="/*"
         element={
