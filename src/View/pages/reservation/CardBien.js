@@ -9,7 +9,6 @@ import Grid from '@mui/material/Grid';
 import { useNavigate } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel2';
 import StarRateIcon from '@mui/icons-material/StarRate';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton from '@mui/material/IconButton';
 import './reservation.css';
 // OWL
@@ -32,9 +31,6 @@ export default function Cardchambre({ chambre }) {
 
   return (
     <Card sx={{ maxWidth: { xs: '100%', sm: 250, md: 250 } }}>
-      <IconButton aria-label="love">
-        <FavoriteIcon />
-      </IconButton>
       <CardActionArea>
         <OwlCarousel options={options}>
           {chambre.images.map((image, index) => (
