@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import Footer from '../../composents/footer/Footer';
+import Footer from '../../composents/footer/Footer2';
 export default function About() {
   return (
     <div

@@ -1,0 +1,25 @@
+:root {
+    --vert: #6f7835;
+    --top: #8a7e66;
+    --disable: #ccc;
+  }
+
+.cible_all_images, .cible2_all_images{
+    position: relative;
+}
+.cible_all_images Button{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.cible2_all_images Button{
+    position: absolute;
+    bottom: 30px;
+    z-index: 999;
+}
+.cible_all_images .img{
+    position: relative;
+    background-color: var(--top) ;
+    background-position: center;
+    background-size: cover;
+}

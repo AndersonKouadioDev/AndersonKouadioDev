@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { styled } from '@mui/material/styles';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
-import Tooltip, { tooltipClasses }  from '@mui/material/Tooltip';
-import { NavLink } from 'react-router-dom';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import { NavLink, Link } from 'react-router-dom';
 import './Carousel.css';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Fade from '@mui/material/Fade';
 // Icons
 import IconButton from '@mui/material/IconButton';
 import Facebook from '@mui/icons-material/Facebook';
@@ -15,19 +18,32 @@ import LinkedIn from '@mui/icons-material/LinkedIn';
 import Instagram from '@mui/icons-material/Instagram';
 import MailIcon from '@mui/icons-material/Mail';
 import PhoneIcon from '@mui/icons-material/Phone';
-
-export default function ItemCarousel({
-  title,
-  subtitle,
-  img,
-  sticker,
-}) {
+import MenuIcon from '@mui/icons-material/Menu';
+export default function ItemCarousel({ title, subtitle, img, sticker }) {
   const styleBtn = {
     backgroundColor: '#6F7835',
     '&:hover': {
       backgroundColor: '#8A7E66',
     },
   };
+
+  const [sizeScreen, setSizeScreen] = useState(window.innerWidth);
+  useEffect(() => {
+    setSizeScreen(window.innerWidth);
+  }, []);
+
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const isActiveStyle = {
     color: '#FFF',
     fontWeight: 700,
@@ -41,7 +57,7 @@ export default function ItemCarousel({
     <Tooltip {...props} classes={{ popper: className }} />
   ))(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
-      backgroundColor: "#6F7835",
+      backgroundColor: '#6F7835',
       color: 'rgba(225, 225, 225)',
       boxShadow: theme.shadows[1],
       fontSize: 11,
@@ -52,44 +68,110 @@ export default function ItemCarousel({
       <div className="img" style={{ backgroundImage: `url(${img})` }}></div>
       <div className="content">
         <Container fluid="md">
-          <Row>
-            <Col>
-              <img
-                className="logo"
-                src="assets/images/principal/logo.jpg"
-                alt="logo"
-              />
-            </Col>
-            <Col>
-              <Stack className="menu" direction="horizontal" gap={3}>
-                <NavLink
-                  to="qui_sommes_nous"
-                  className="menu-item"
-                  style={({ isActive }) =>
-                    isActive ? isActiveStyle : undefined
-                  }
-                >
-                  Apropos du DCV
-                </NavLink>
-                <NavLink
-                  to="/biens_DCV"
-                  className="menu-item"
-                  style={({ isActive }) =>
-                    isActive ? isActiveStyle : undefined
-                  }
-                >
-                  Nos Biens
-                </NavLink>
-              </Stack>
-            </Col>
-            <Col>
-              <div className="btn_reservation">
-                <Button variant="contained" color="primary">
-                  Langue
-                </Button>
-              </div>
-            </Col>
-          </Row>
+          {sizeScreen > 600 ? (
+            <Row>
+              <Col>
+                <img
+                  className="logo"
+                  src="assets/images/principal/logo.jpg"
+                  alt="logo"
+                />
+              </Col>
+              <Col>
+                <Stack className="menu" direction="horizontal" gap={3}>
+                  <NavLink
+                    to="qui_sommes_nous"
+                    className="menu-item"
+                    style={({ isActive }) =>
+                      isActive ? isActiveStyle : undefined
+                    }
+                  >
+                    Apropos du DCV
+                  </NavLink>
+                  <NavLink
+                    to="/biens_DCV"
+                    className="menu-item"
+                    style={({ isActive }) =>
+                      isActive ? isActiveStyle : undefined
+                    }
+                  >
+                    Nos Biens
+                  </NavLink>
+                </Stack>
+              </Col>
+              <Col>
+                <div className="btn_reservation">
+                  <Button variant="contained" color="primary">
+                    Langue
+                  </Button>
+                </div>
+              </Col>
+            </Row>
+          ) : (
+            <Row>
+              <Col>
+                <img
+                  className="logo"
+                  src="assets/images/principal/logo.jpg"
+                  alt="logo"
+                />
+              </Col>
+              <Col>
+                <div className="btn_reservation">
+                  <Button
+                    variant="contained"
+                    startIcon={<MenuIcon />}
+                    id="fade-button"
+                    aria-controls={open ? 'fade-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    onClick={handleClick}
+                  >
+                    Menu
+                  </Button>
+                  <Menu
+                    id="fade-menu"
+                    MenuListProps={{
+                      'aria-labelledby': 'fade-button',
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    TransitionComponent={Fade}
+                    sx={{ textAlign: 'center' }}
+                  >
+                    <Link
+                      to="qui_sommes_nous"
+                      style={{ textDecoration: 'none', color: 'white' }}
+                    >
+                      <MenuItem
+                        onClick={handleClose}
+                        style={{
+                          backgroundColor: '#8A7E66',
+                        }}
+                      >
+                        Apropos du DCV
+                      </MenuItem>
+                    </Link>
+                    <Link
+                      to="/biens_DCV"
+                      style={{ textDecoration: 'none', color: 'white' }}
+                    >
+                      <MenuItem
+                        onClick={handleClose}
+                        style={{
+                          backgroundColor: '#6F7835', textAlign:'center'
+                        }}
+                      >
+                        Nos Biens
+                      </MenuItem>
+                    </Link>
+                    <MenuItem onClick={handleClose}>Langue</MenuItem>
+                  </Menu>
+                </div>
+              </Col>
+            </Row>
+          )}
           <Row className="Footer">
             <Col md={8}>
               <Stack className="partie1" gap={4}>

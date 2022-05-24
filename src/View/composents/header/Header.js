@@ -61,6 +61,7 @@ export default function Header({ title, back }) {
     },
   };
   let navigate = useNavigate();
+  
   function handleChange() {
     navigate(back, { replace: true });
   }

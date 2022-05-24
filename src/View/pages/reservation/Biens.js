@@ -3,7 +3,7 @@ import { getChambre } from '../../../redux/actions/a_chambres';
 import { getCategorie } from '../../../redux/actions/a_categories';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../composents/header/Header';
-import Footer from '../../composents/footer/Footer';
+import Footer from '../../composents/footer/Footer2';
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -24,7 +24,7 @@ export default function FullWidthTabs() {
   }, [dispatch]);
 
   const [value, setValue] = useState(0);
-  const selected_chambres = chambres.filter((chambre) => chambre.categorie_id == categories[value].id);
+  const selected_chambres = chambres.filter((chambre) => chambre.categorie_id === categories[value].id);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

@@ -9,11 +9,16 @@
       "prix": "80 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/1.jpg",
-        "assets/images/biens/suite_executive/2.jpg",
-        "assets/images/biens/suite_executive/3.jpg",
-        "assets/images/biens/suite_executive/4.jpg",
-        "assets/images/biens/suite_executive/5.jpg"
+        "assets/images/biens/suites/suite_executive/001.jpg",
+        "assets/images/biens/suites/suite_executive/002.jpg",
+        "assets/images/biens/suites/suite_executive/003.jpg",
+        "assets/images/biens/suites/suite_executive/004.jpg",
+        "assets/images/biens/suites/suite_executive/005.jpg",
+        "assets/images/biens/suites/suite_executive/006.jpg",
+        "assets/images/biens/suites/suite_executive/007.jpg",
+        "assets/images/biens/suites/suite_executive/008.jpg",
+        "assets/images/biens/suites/suite_executive/009.jpg",
+        "assets/images/biens/suites/suite_executive/0010.jpg"
       ],
       "vote": 3,
       "periode": "jour",
@@ -35,11 +40,12 @@
       "prix": "60 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/3.jpg",
-        "assets/images/biens/suite_executive/4.jpg",
-        "assets/images/biens/suite_executive/5.jpg",
-        "assets/images/biens/suite_executive/6.jpg",
-        "assets/images/biens/suite_executive/7.jpg"
+        "assets/images/biens/suites/suite_junior/001.jpg",
+        "assets/images/biens/suites/suite_junior/002.jpg",
+        "assets/images/biens/suites/suite_junior/003.jpg",
+        "assets/images/biens/suites/suite_junior/004.jpg",
+        "assets/images/biens/suites/suite_junior/005.jpg",
+        "assets/images/biens/suites/suite_junior/006.jpg"
       ],
       "vote": 4,
       "periode": "jour",
@@ -54,18 +60,18 @@
     },
     {
       "id": 3,
-      "nom": "Supérieur deluxe",
+      "nom": "Supérieure deluxe",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nulla corrupti",
       "categorie_id": 2,
       "categorie": "LES SUPÉRIEURES",
       "prix": "55 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/1.jpg",
-        "assets/images/biens/suite_executive/2.jpg",
-        "assets/images/biens/suite_executive/3.jpg",
-        "assets/images/biens/suite_executive/4.jpg",
-        "assets/images/biens/suite_executive/5.jpg"
+        "assets/images/biens/superieures/superieure_deluxe/001.jpg",
+        "assets/images/biens/superieures/superieure_deluxe/002.jpg",
+        "assets/images/biens/superieures/superieure_deluxe/003.jpg",
+        "assets/images/biens/superieures/superieure_deluxe/004.jpg",
+        "assets/images/biens/superieures/superieure_deluxe/005.jpg"
       ],
       "vote": 3,
       "periode": "jour",
@@ -80,18 +86,18 @@
     },
     {
       "id": 4,
-      "nom": "Supérieur 1",
+      "nom": "Supérieure 1",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nulla corrupti",
       "categorie_id": 2,
       "categorie": "LES SUPÉRIEURES",
       "prix": "50 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/2.jpg",
-        "assets/images/biens/suite_executive/3.jpg",
-        "assets/images/biens/suite_executive/4.jpg",
-        "assets/images/biens/suite_executive/5.jpg",
-        "assets/images/biens/suite_executive/6.jpg"
+        "assets/images/biens/superieures/superieure1/001.jpg",
+        "assets/images/biens/superieures/superieure1/002.jpg",
+        "assets/images/biens/superieures/superieure1/003.jpg",
+        "assets/images/biens/superieures/superieure1/004.jpg",
+        "assets/images/biens/superieures/superieure1/005.jpg"
       ],
       "vote": 4,
       "periode": "nuit",
@@ -106,18 +112,19 @@
     },
     {
       "id": 5,
-      "nom": "Supérieur 2",
+      "nom": "Supérieure 2",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nulla corrupti",
       "categorie_id": 2,
       "categorie": "LES SUPÉRIEURES",
       "prix": "50 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/3.jpg",
-        "assets/images/biens/suite_executive/4.jpg",
-        "assets/images/biens/suite_executive/5.jpg",
-        "assets/images/biens/suite_executive/6.jpg",
-        "assets/images/biens/suite_executive/7.jpg"
+        "assets/images/biens/superieures/superieure2/001.jpg",
+        "assets/images/biens/superieures/superieure2/002.jpg",
+        "assets/images/biens/superieures/superieure2/003.jpg",
+        "assets/images/biens/superieures/superieure2/004.jpg",
+        "assets/images/biens/superieures/superieure2/005.jpg",
+        "assets/images/biens/superieures/superieure2/006.jpg"
       ],
       "vote": 4,
       "periode": "jour",
@@ -139,11 +146,12 @@
       "prix": "45 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/3.jpg",
-        "assets/images/biens/suite_executive/4.jpg",
-        "assets/images/biens/suite_executive/5.jpg",
-        "assets/images/biens/suite_executive/6.jpg",
-        "assets/images/biens/suite_executive/7.jpg"
+        "assets/images/biens/studios/studio_deluxe/001.jpg",
+        "assets/images/biens/studios/studio_deluxe/002.jpg",
+        "assets/images/biens/studios/studio_deluxe/003.jpg",
+        "assets/images/biens/studios/studio_deluxe/004.jpg",
+        "assets/images/biens/studios/studio_deluxe/005.jpg",
+        "assets/images/biens/studios/studio_deluxe/006.jpg"
       ],
       "vote": 4,
       "periode": "jour",
@@ -165,11 +173,11 @@
       "prix": "40 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/4.jpg",
-        "assets/images/biens/suite_executive/5.jpg",
-        "assets/images/biens/suite_executive/6.jpg",
-        "assets/images/biens/suite_executive/7.jpg",
-        "assets/images/biens/suite_executive/8.jpg"
+        "assets/images/biens/studios/studio1/001.jpg",
+        "assets/images/biens/studios/studio1/002.jpg",
+        "assets/images/biens/studios/studio1/003.jpg",
+        "assets/images/biens/studios/studio1/004.jpg",
+        "assets/images/biens/studios/studio1/005.jpg"
       ],
       "vote": 4,
       "periode": "jour",
@@ -191,11 +199,11 @@
       "prix": "40 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/8.jpg",
-        "assets/images/biens/suite_executive/9.jpg",
-        "assets/images/biens/suite_executive/10.jpg",
-        "assets/images/biens/suite_executive/1.jpg",
-        "assets/images/biens/suite_executive/2.jpg"
+        "assets/images/biens/studios/studio2/001.jpg",
+        "assets/images/biens/studios/studio2/002.jpg",
+        "assets/images/biens/studios/studio2/003.jpg",
+        "assets/images/biens/studios/studio2/004.jpg",
+        "assets/images/biens/studios/studio2/005.jpg"
       ],
       "vote": 4,
       "periode": "nuit",
@@ -217,11 +225,15 @@
       "prix": "35 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/1.jpg",
-        "assets/images/biens/suite_executive/2.jpg",
-        "assets/images/biens/suite_executive/3.jpg",
-        "assets/images/biens/suite_executive/4.jpg",
-        "assets/images/biens/suite_executive/5.jpg"
+        "assets/images/biens/standards/standard1/001.jpg",
+        "assets/images/biens/standards/standard1/002.jpg",
+        "assets/images/biens/standards/standard1/003.jpg",
+        "assets/images/biens/standards/standard1/004.jpg",
+        "assets/images/biens/standards/standard1/005.jpg",
+        "assets/images/biens/standards/standard1/006.jpg",
+        "assets/images/biens/standards/standard1/007.jpg",
+        "assets/images/biens/standards/standard1/008.jpg",
+        "assets/images/biens/standards/standard1/009.jpg"
       ],
       "vote": 4,
       "periode": "jour",
@@ -243,11 +255,15 @@
       "prix": "30 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/3.jpg",
-        "assets/images/biens/suite_executive/4.jpg",
-        "assets/images/biens/suite_executive/5.jpg",
-        "assets/images/biens/suite_executive/6.jpg",
-        "assets/images/biens/suite_executive/7.jpg"
+        "assets/images/biens/standards/standard1/001.jpg",
+        "assets/images/biens/standards/standard1/002.jpg",
+        "assets/images/biens/standards/standard1/003.jpg",
+        "assets/images/biens/standards/standard1/004.jpg",
+        "assets/images/biens/standards/standard1/005.jpg",
+        "assets/images/biens/standards/standard1/006.jpg",
+        "assets/images/biens/standards/standard1/007.jpg",
+        "assets/images/biens/standards/standard1/008.jpg",
+        "assets/images/biens/standards/standard1/009.jpg"
       ],
       "vote": 4,
       "periode": "jour",
@@ -269,11 +285,13 @@
       "prix": "30 000",
       "petit_dejeuner": true,
       "images": [
-        "assets/images/biens/suite_executive/5.jpg",
-        "assets/images/biens/suite_executive/6.jpg",
-        "assets/images/biens/suite_executive/7.jpg",
-        "assets/images/biens/suite_executive/8.jpg",
-        "assets/images/biens/suite_executive/10.jpg"
+        "assets/images/biens/standards/standard2/001.jpg",
+        "assets/images/biens/standards/standard2/002.jpg",
+        "assets/images/biens/standards/standard2/003.jpg",
+        "assets/images/biens/standards/standard2/004.jpg",
+        "assets/images/biens/standards/standard2/005.jpg",
+        "assets/images/biens/standards/standard2/006.jpg",
+        "assets/images/biens/standards/standard2/007.jpg"
       ],
       "vote": 4,
       "periode": "jour",
