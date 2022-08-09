@@ -5,24 +5,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
-import IconButton from '@mui/material/IconButton';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
-
 
 export default function CardService({ img, title }) {
   let navigate = useNavigate();
   function handleChange() {
     navigate('/biens_DCV', { replace: true });
   }
-  const styleBtn = {
-    color: '#white',
-    marginLeft: '5px',
-    '&:hover': {
-      backgroundColor: '#6F7835',
-      color: 'white',
-    },
-  };
   const styleTitle = {
     color: 'white',
     width: '80%',
@@ -46,16 +36,8 @@ export default function CardService({ img, title }) {
         <CardContent>
           <Typography gutterBottom variant="h6" component="div" sx={styleTitle}>
             {title}
-            <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="go services"
-            sx={styleBtn}
-            onClick={handleChange}
-          >
-            <ChevronRightIcon />
-          </IconButton>
           </Typography>
+          <Button variant='outlined' onClick={handleChange}>Reserver</Button>
         </CardContent>
       </CardActionArea>
     </Card>

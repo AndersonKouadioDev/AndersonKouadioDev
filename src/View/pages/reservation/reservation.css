@@ -22,4 +22,5 @@
     background-color: var(--top) ;
     background-position: center;
     background-size: cover;
+    overflow: hidden;
 }

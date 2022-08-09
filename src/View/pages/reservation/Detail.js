@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { getChambre } from '../../../redux/actions/a_chambres';
-import { getCategorie } from '../../../redux/actions/a_categories';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect, useReducer } from 'react';
+import { useDispatch } from 'react-redux';
 import Header from '../../composents/header/Header';
 import Footer from '../../composents/footer/Footer2';
 import Calendar from '../../composents/calendar/Calendar';
@@ -15,11 +13,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Typography from '@mui/material/Typography';
-import StarRateIcon from '@mui/icons-material/StarRate';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import PhoneIcon from '@mui/icons-material/Phone';
-import RoomIcon from '@mui/icons-material/Room';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
@@ -32,18 +28,17 @@ import ImageListItem from '@mui/material/ImageListItem';
 import './reservation.css';
 import OwlCarousel from 'react-owl-carousel2';
 import CardMedia from '@mui/material/CardMedia';
+import { chambres } from '../../../data/db';
+import SnackBarSender from '../../composents/snackbar/SnackBarSender';
 
 export default function Detail() {
   const dispatch = useDispatch();
 
   let params = useParams();
 
-  const { chambres } = useSelector((state) => state.chambres);
   const [sizeScreen, setSizeScreen] = useState(window.innerWidth);
   // Get Chambres
   useEffect(() => {
-    dispatch(getChambre());
-    dispatch(getCategorie());
     setSizeScreen(window.innerWidth);
   }, [dispatch]);
 
@@ -61,16 +56,75 @@ export default function Detail() {
   };
   const handleClose = () => {
     setOpen(false);
-    // window.location.reload()
   };
+  //
   const options = {
     items: 1,
     loop: true,
     autoplay: true,
     autoplayTimeout: 1000,
   };
+
+  const [date_dcv, setDate_dcv] = useState({});
+
+  const handleChangeDate = (item) => {
+    setDate_dcv(item);
+    setSnack('');
+    setReservation({
+      date_debut: item.startDate,
+      date_fin: item.endDate,
+    });
+  };
+
+  const initialState = {
+    nom_prenoms: '',
+    email: '',
+    tel: '',
+    date_debut: date_dcv.startDate,
+    date_fin: date_dcv.endDate,
+    bien: chambre.nom,
+  };
+
+  const [reservation, setReservation] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    initialState
+  );
+
+  const handleChangeReservation = (event) => {
+    setReservation({ [event.target.name]: event.target.value });
+    setSnack('');
+  };
+
+  const [snack, setSnack] = useState('');
+  const handleValidate = (event) => {
+    event.preventDefault();
+    if (
+      reservation.nom_prenoms &&
+      reservation.email &&
+      reservation.tel &&
+      reservation.date_debut &&
+      reservation.date_fin
+    ) {
+      setReservation(initialState);
+      setSnack(
+        <SnackBarSender message="Réservation prise en compte." etat="success" />
+      );
+    } else {
+      setSnack(
+        <SnackBarSender
+          message="Veuillez Remplir tous les champs SVP!"
+          etat="error"
+        />
+      );
+    }
+  };
+
+  // End
+
   return chambre ? (
     <>
+      {snack}
+      {/* Fin SnackBar */}
       {/* DIALOG */}
       <Dialog fullScreen open={open} onClose={handleClose}>
         <AppBar sx={{ position: 'relative' }}>
@@ -105,7 +159,11 @@ export default function Detail() {
       {/*  */}
 
       <Header title="RESERVATIONS" back="/biens_DCV" />
-      <Container>
+      <Container
+        style={{
+          overflowX: 'hidden',
+        }}
+      >
         <Box
           sx={{
             paddingLeft: { xs: 0, sm: 2 },
@@ -113,23 +171,29 @@ export default function Detail() {
           }}
         >
           <Typography variant="h5">{chambre.nom}</Typography>
-          <Typography variant="subtitle1">
+          {/* <Typography variant="subtitle1">
             <b> {chambre.vote} </b>
             <StarRateIcon
               fontSize="small"
               style={{ transform: 'translateY(-2px)', marginX: 2 }}
             />
-            <a href="" style={{ marginLeft: '10px', color: 'black' }}>
+            <span
+              style={{
+                textDecoration: 'underline',
+                marginLeft: '10px',
+                color: 'black',
+              }}
+            >
               {chambre.commentaires.length > 0
                 ? chambre.commentaires.length + ' commentaires'
                 : chambre.commentaires.length + ' commentaire'}{' '}
-            </a>
+            </span>
             <RoomIcon
               fontSize="small"
               style={{ transform: 'translateY(-2px)', marginX: 2 }}
             />
             {chambre.adresse}
-          </Typography>
+          </Typography> */}
         </Box>
         {sizeScreen > 600 ? (
           <Box sx={{ paddingX: { xs: 0, sm: 2 } }} className="cible_all_images">
@@ -203,7 +267,7 @@ export default function Detail() {
           </Box>
         )}
 
-        <Box
+        {/* <Box
           sx={{
             paddingLeft: { xs: 0, sm: 2 },
             paddingY: { xs: 0, sm: 2, md: 3 },
@@ -222,11 +286,12 @@ export default function Detail() {
               ? chambre.nb_salle_bain + ' salles de bain '
               : chambre.nb_salle_bain + ' salle de bain'}
           </Typography>
-        </Box>
+        </Box> */}
         {/* Reservation */}
         <Row
           style={{
             marginBottom: '50px',
+            marginTop: '50px',
           }}
         >
           <Col xs={12} sm={12} md={12}>
@@ -239,7 +304,7 @@ export default function Detail() {
             </Typography>
             <Divider sx={{ marginBottom: 2 }} />
           </Col>
-          <Col>
+          <Col xs={12} sm={6} md={8}>
             <Box
               component="form"
               sx={{
@@ -256,6 +321,9 @@ export default function Detail() {
                   // error
                   id="nom_prenoms"
                   label="Nom et Prénoms"
+                  name="nom_prenoms"
+                  value={reservation.nom_prenoms}
+                  onChange={handleChangeReservation}
                   placeholder="Anderson Kouadio"
                   helperText="Obligatoire"
                   variant="standard"
@@ -268,6 +336,9 @@ export default function Detail() {
                   //   error
                   id="email"
                   label="Email"
+                  name="email"
+                  value={reservation.email}
+                  onChange={handleChangeReservation}
                   placeholder="andersonkouadio@gmail.com"
                   helperText="Obligatoire"
                   variant="standard"
@@ -280,6 +351,9 @@ export default function Detail() {
                   //   error
                   id="tel"
                   label="Téléphone"
+                  name="tel"
+                  value={reservation.tel}
+                  onChange={handleChangeReservation}
                   placeholder="+225 0768566647"
                   helperText="Obligatoire"
                   variant="standard"
@@ -288,11 +362,15 @@ export default function Detail() {
               </Box>
             </Box>
           </Col>
-          <Col>
-            <Calendar />
+          <Col xs={12} sm={4} md={4}>
+            <Calendar handleDate={handleChangeDate} />
           </Col>
           <Col xs={12} sm={12} md={12} style={{ textAlign: 'center' }}>
-            <Button variant="contained" color="primary">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleValidate}
+            >
               Valider
             </Button>
           </Col>

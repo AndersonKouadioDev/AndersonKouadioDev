@@ -10,19 +10,23 @@ const initialState = {
     {
       id: 1,
       label: 'LES SUITES',
+      image: '/assets/images/biens/categories/suite.jpg',
     },
     {
       id: 2,
       label: 'LES SUPÉRIEURES',
+      image: '/assets/images/biens/categories/superieure.jpg',
     },
     {
       id: 3,
       label: 'LES STUDIOS',
+      image: '/assets/images/biens/categories/studio.jpg',
     },
     {
       id: 4,
       label: 'LES STANDARDS',
-    },
+      image: '/assets/images/biens/categories/standard.jpg',
+    }
   ],
 };
 

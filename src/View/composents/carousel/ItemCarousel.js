@@ -20,13 +20,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MenuIcon from '@mui/icons-material/Menu';
 export default function ItemCarousel({ title, subtitle, img, sticker }) {
-  const styleBtn = {
-    backgroundColor: '#6F7835',
-    '&:hover': {
-      backgroundColor: '#8A7E66',
-    },
-  };
-
+  
   const [sizeScreen, setSizeScreen] = useState(window.innerWidth);
   useEffect(() => {
     setSizeScreen(window.innerWidth);
@@ -155,7 +149,7 @@ export default function ItemCarousel({ title, subtitle, img, sticker }) {
                     </Link>
                     <Link
                       to="/biens_DCV"
-                      style={{ textDecoration: 'none', color: 'white' }}
+                      style={{  textDecoration:'none', color: 'white' }}
                     >
                       <MenuItem
                         onClick={handleClose}
@@ -175,10 +169,10 @@ export default function ItemCarousel({ title, subtitle, img, sticker }) {
           <Row className="Footer">
             <Col md={8}>
               <Stack className="partie1" gap={4}>
-                <div className="etiquette">
+                <div className="etiquette" style={{display: sizeScreen < 500 && 'none'}}>
                   DCV <span className="disable">{'>' + sticker}</span>
                 </div>
-                <div className="title">{title}</div>
+                <div className="title" style={{textAlign:  sizeScreen < 500 && 'center', width:  sizeScreen < 500 && '100%',fontSize:  sizeScreen < 500 && '3rem'}}>{title}</div>
                 <div className="subtitle">
                   <p className="header">{subtitle}</p>
                 </div>
@@ -186,7 +180,7 @@ export default function ItemCarousel({ title, subtitle, img, sticker }) {
             </Col>
             <Col>
               <div className="partie2">
-                <Stack className="social">
+                <Stack className="social" direction={ sizeScreen < 500 && 'horizontal'}>
                   <a
                     href="https://www.facebook.com/domainedelacouleeverte"
                     target="_blank"

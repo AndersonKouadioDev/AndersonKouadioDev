@@ -1,38 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CardService from '../../composents/cards/CardService';
 import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
 import Temoignage from '../../composents/temoignage/Temoignage';
 import './Home.css';
 import Footer from '../../composents/footer/Footer';
 import Typography from '@mui/material/Typography';
+import {categories } from '../../../data/db';
 
 export default function Home() {
-  const data = [
-    {
-      img: 'assets/images/carousel/c1.jpg',
-      title: 'Suite Exécutive',
-    },
-    {
-      img: 'assets/images/carousel/c2.jpg',
-      title: '1 Suite Junior',
-    },
-    {
-      img: 'assets/images/carousel/c3.jpg',
-      title: '3 Supérieures',
-    },
-    {
-      img: 'assets/images/carousel/c4.jpg',
-      title: '3 Studios',
-    },
-    {
-      img: 'assets/images/carousel/c5.jpg',
-      title: '3 Standar',
-    },
-  ];
+
+  const [sizeScreen, setSizeScreen] = useState(window.innerWidth);
+
+  // Get Chambres
+  useEffect(() => {
+    setSizeScreen(window.innerWidth);
+  }, []);
   return (
     <>
       <div
@@ -44,7 +29,7 @@ export default function Home() {
       >
         <Container>
           <Row style={{ alignItems: 'flex-start' }}>
-            <Col>
+            <Col xs={12} sm={6} md={6}>
               <div className="about">
                 <Row style={{ marginBottom: 20 }}>
                   <Col sm={12} md={8}>
@@ -58,7 +43,10 @@ export default function Home() {
                 <Typography variant="h4" style={{ color: 'white' }}>
                   Qui sommes-nous ?
                 </Typography>
-                <Typography variant="body1" style={{ color: 'white' }}>
+                <Typography
+                  variant="body1"
+                  sx={{ color: 'white', marginBottom: 5 }}
+                >
                   Situé dans la commune de Cocody Angré 7ème tranche dans la
                   ruelle BP V 56, le DCV est un hôtel urbain de 3étoiles (3 *)
                   avec pour ambition de se positionner comme référence pour les
@@ -69,12 +57,18 @@ export default function Home() {
                 </Typography>
               </div>
             </Col>
-            <Col>
-              <ImageList variant="woven" cols={2} gap={8}>
-                {data.map((elt, index) => (
-                  <ImageListItem key={index}>
-                    <CardService img={elt.img} title={elt.title} />
-                  </ImageListItem>
+            <Col xs={12} sm={6} md={6}>
+              <ImageList
+                variant="woven"
+                cols={sizeScreen > 500 ? 2 : 1}
+                gap={8}
+              >
+                {categories.map((categorie, index) => (
+                  <CardService
+                    img={categorie.image}
+                    title={categorie.label}
+                    key={index}
+                  />
                 ))}
               </ImageList>
             </Col>

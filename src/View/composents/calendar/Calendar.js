@@ -1,57 +1,34 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import React, { useState, useEffect } from 'react';
+import './Calendar.css';
+import { DateRangePicker } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
-import { StaticDateRangePicker } from '@mui/x-date-pickers-pro/StaticDateRangePicker';
-import { DateRangePickerDay as MuiDateRangePickerDay } from '@mui/x-date-pickers-pro/DateRangePickerDay';
-
-const DateRangePickerDay = styled(MuiDateRangePickerDay)(
-  ({ theme, isHighlighting, isStartOfHighlighting, isEndOfHighlighting }) => ({
-    ...(isHighlighting && {
-      borderRadius: 0,
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.common.white,
-      '&:hover, &:focus': {
-        backgroundColor: theme.palette.primary.dark,
-      },
-    }),
-    ...(isStartOfHighlighting && {
-      borderTopLeftRadius: '50%',
-      borderBottomLeftRadius: '50%',
-    }),
-    ...(isEndOfHighlighting && {
-      borderTopRightRadius: '50%',
-      borderBottomRightRadius: '50%',
-    }),
-  }),
-);
-
-export default function Calendar() {
-  const [value, setValue] = React.useState([null, null]);
-
-  const renderWeekPickerDay = (date, dateRangePickerDayProps) => {
-    return <DateRangePickerDay {...dateRangePickerDayProps} />;
-  };
-
+export default function Calendar({ handleDate }) {
+  const [rangeDate, setRangeDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection',
+    },
+  ]);
+  useEffect(() => {
+    handleDate(rangeDate[0]);
+  }, []);
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <StaticDateRangePicker
-        displayStaticWrapperAs="mobile"
-        label="date range"
-        value={value}
-        onChange={(newValue) => setValue(newValue)}
-        renderDay={renderWeekPickerDay}
-        renderInput={(startProps, endProps) => (
-          <React.Fragment>
-            <TextField {...startProps} />
-            <Box sx={{ mx: 2 }}> to </Box>
-            <TextField {...endProps} />
-          </React.Fragment>
-        )}
+    <div>
+      <DateRangePicker
+        onChange={(item) => {
+          setRangeDate([item.selection]);
+          handleDate(item.selection);
+        }}
+        minDate={new Date()}
+        rangeColors={['#6F7835']}
+        showSelectionPreview={true}
+        moveRangeOnFirstSelection={false}
+        ranges={rangeDate}
+        direction="horizontal"
       />
-    </LocalizationProvider>
+    </div>
   );
 }

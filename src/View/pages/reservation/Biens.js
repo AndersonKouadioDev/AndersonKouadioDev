@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { getChambre } from '../../../redux/actions/a_chambres';
-import { getCategorie } from '../../../redux/actions/a_categories';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
 import Header from '../../composents/header/Header';
 import Footer from '../../composents/footer/Footer2';
 import AppBar from '@mui/material/AppBar';
@@ -12,19 +9,13 @@ import Grid from '@mui/material/Grid';
 import './reservation.css';
 import CardBien from './CardBien';
 import Typography from '@mui/material/Typography';
+import { chambres, categories } from '../../../data/db';
 
 export default function FullWidthTabs() {
-  const dispatch = useDispatch();
-
-  const { chambres } = useSelector((state) => state.chambres);
-  const { categories } = useSelector((state) => state.categories);
-  useEffect(() => {
-    dispatch(getChambre());
-    dispatch(getCategorie());
-  }, [dispatch]);
-
   const [value, setValue] = useState(0);
-  const selected_chambres = chambres.filter((chambre) => chambre.categorie_id === categories[value].id);
+  const selected_chambres = chambres.filter(
+    (chambre) => chambre.categorie_id === categories[value].id
+  );
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

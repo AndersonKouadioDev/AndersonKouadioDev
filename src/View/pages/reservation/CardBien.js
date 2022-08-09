@@ -8,12 +8,11 @@ import CardActionArea from '@mui/material/CardActionArea';
 import Grid from '@mui/material/Grid';
 import { useNavigate } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel2';
-import StarRateIcon from '@mui/icons-material/StarRate';
-import IconButton from '@mui/material/IconButton';
 import './reservation.css';
 // OWL
 import 'react-owl-carousel2/src/owl.carousel.css';
 import 'react-owl-carousel2/src/owl.theme.default.css';
+import Button from '@mui/material/Button';
 
 export default function Cardchambre({ chambre }) {
   let navigate = useNavigate();
@@ -46,32 +45,22 @@ export default function Cardchambre({ chambre }) {
           ))}
         </OwlCarousel>
         <CardContent>
-          <Grid container spacing={1}>
-            <Grid item xs={9} sm={9} md={9}>
-              <Typography gutterBottom variant="subtitle1" color="primary">
-                <b> {chambre.nom}</b>
-              </Typography>
-            </Grid>
-            <Grid item xs={3} sm={3} md={3}>
-              <b> {chambre.vote} </b>
-              <StarRateIcon fontSize="small" />
-            </Grid>
-          </Grid>
+          <Typography gutterBottom variant="subtitle1" color="primary">
+            <b> {chambre.nom}</b>
+          </Typography>
           <Grid container spacing={1}>
             <Grid item xs={12} sm={12} md={12}>
-              <Typography gutterBottom variant="subtitle1">
-                {chambre.description}
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid container spacing={1}>
-            <Grid item xs={12} sm={12} md={12}>
-              <Typography gutterBottom variant="subtitle2">
-                {chambre.interval}
-              </Typography>
               <Typography gutterBottom variant="subtitle2">
                 <b> {chambre.prix}</b> Franc CFA
               </Typography>
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{ width: '100%' }}
+                onClick={handleDetail}
+              >
+                Reserver
+              </Button>
             </Grid>
           </Grid>
         </CardContent>
