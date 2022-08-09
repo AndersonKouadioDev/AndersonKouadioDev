@@ -342,7 +342,7 @@ function Tableau({ image, title, rows }) {
     <div className="container">
       <div className="row align-items-center justify-content-evenly p-4">
         <div className="col-sm-2">
-          <img src={image} alt="Responsive image" style={{position:'relative',width:'200px'}}/>
+          <img src={image} alt="Responsive" style={{position:'relative',width:'200px'}}/>
         </div>
         <div className="col-sm-6">
           <h1
