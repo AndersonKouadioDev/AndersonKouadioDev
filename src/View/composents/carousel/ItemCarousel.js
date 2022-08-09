@@ -57,7 +57,7 @@ export default function ItemCarousel({ title, subtitle, img, sticker }) {
     },
   }));
   return (
-    <div className="item">
+    <div className="item" style={{ minHeight: sizeScreen > 600 ? '100vh':'120vh'}}>
       <div className="img" style={{ backgroundImage: `url(${img})` }}></div>
       <div className="content">
         <Container fluid="md">

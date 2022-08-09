@@ -1,167 +1,161 @@
 :root {
-    --vert : #6F7835;
-    --top : #8A7E66;
-    --disable : #CCC;
+  --vert: #6f7835;
+  --top: #8a7e66;
+  --disable: #ccc;
 }
 
-.vert{
-    background-color: var(--vert);
+.vert {
+  background-color: var(--vert);
 }
-.vert{
-    background-color: var(--top);
+.vert {
+  background-color: var(--top);
 }
-.item{
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
+.item {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
 }
 /* Img */
-.item .img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    z-index: 0;
-
+.item .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  z-index: 0;
 }
 /* ================================= Content ================================*/
-.item .content{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color:rgba(111, 120, 53, 0.146);
-    z-index: 1;
+.item .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(111, 120, 53, 0.146);
+  z-index: 1;
 }
 /* Logo */
-.item .content .logo{
-   position: relative;
-   width: 90px;
-   box-shadow: 0px 0px 10px black;
+.item .content .logo {
+  position: relative;
+  width: 90px;
+  box-shadow: 0px 0px 10px black;
 }
 /* Menu  */
-.item .content .menu{
-    position: relative;
-    height: 100%;
-    justify-content: space-evenly;
-    align-items: center;
+.item .content .menu {
+  position: relative;
+  height: 100%;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.item .content .menu .menu-item{
-    position: relative;
-    font-size: 1.1rem;
-    text-decoration: none;
-    color: white;
+.item .content .menu .menu-item {
+  position: relative;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: white;
 }
-.item .content .menu .menu-item>a{
-    color: white;
+.item .content .menu .menu-item > a {
+  color: white;
 }
 
-.item .content .menu .menu-item:hover{
-    font-weight: 900;
+.item .content .menu .menu-item:hover {
+  font-weight: 900;
 }
-.item .content .menu .menu-item{
-    position: relative;
-    font-size: 1.1rem;
-    text-decoration: none;
-    color: white;
+.item .content .menu .menu-item {
+  position: relative;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: white;
 }
 
 /* reservation  */
-.item .content .btn_reservation{
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
+.item .content .btn_reservation {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
 }
 /* Footer */
-.item .content .Footer{
-    position: relative;
-    padding-top:30px ;
-    height: 100%;
+.item .content .Footer {
+  position: relative;
+  padding-top: 30px;
+  height: 100%;
 }
 /* Partie 1 */
-.item .content .Footer .partie1{
-    position: relative;
-    height: 100%;
+.item .content .Footer .partie1 {
+  position: relative;
+  height: 100%;
 }
 /* Etiquette */
-.item .content .Footer .etiquette{
-    position: relative;
-    display: inline-block;
-    width:fit-content;
-    background-color: var(--top);
-    padding: 7px;
-    color: white;
-    font-size: 1rem;
-   box-shadow: 0px 0px 10px black;
-
+.item .content .Footer .etiquette {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  background-color: var(--top);
+  padding: 7px;
+  color: white;
+  font-size: 1rem;
+  box-shadow: 0px 0px 10px black;
 }
-.item .content .Footer .etiquette .disable{
-    color: var(--disable);
+.item .content .Footer .etiquette .disable {
+  color: var(--disable);
 }
 /* Title */
-.item .content .Footer .title{
-   position: relative;
-   color: white;
-   width: 100%;
-   font-size: 3.7rem;
-   line-height: calc(4rem*1.4);
-   font-family:'Jour Script', 'Arial Narrow Bold', sans-serif;
-   text-shadow: 0px 0px 0px black,
-   0px 0px 5px black,
-   0px 0px 10px black;
-   margin-top: 50px;
-
+.item .content .Footer .title {
+  position: relative;
+  color: white;
+  width: 100%;
+  font-size: 3.7rem;
+  line-height: calc(4rem * 1.4);
+  font-family: 'Jour Script', 'Arial Narrow Bold', sans-serif;
+  text-shadow: 0px 0px 0px black, 0px 0px 5px black, 0px 0px 10px black;
+  margin-top: 50px;
 }
 /* Subtitle */
-.item .content .Footer .subtitle{
-   position: relative;
-   color: white;
-   font-size: 1.2rem;
-   margin-top: 50px;
-   text-shadow: 0px 0px 10px black;
-   font-family: Helvetica, sans-serif;
-   font-size: 24px;
+.item .content .Footer .subtitle {
+  position: relative;
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 50px;
+  text-shadow: 0px 0px 10px black;
+  font-family: Helvetica, sans-serif;
+  font-size: 24px;
 }
 
 /* Partie 2 */
-.item .content .Footer .partie2{
-    position: relative;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
+.item .content .Footer .partie2 {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
 }
 /* Control */
-.item .content .Footer .control{
-    position: relative;
-    width: 100%;
-    align-items: flex-end;
-    padding-right: 20px;
+.item .content .Footer .control {
+  position: relative;
+  width: 100%;
+  align-items: flex-end;
+  padding-right: 20px;
 }
-.item .content .Footer .control button{
-    position: relative;
-    width: 1px;
-    height: 30px;
-    border: 1px solid white;
-    border-radius: 3px;
-    box-shadow: 0px 0px 10px black;
-    background-color: transparent;
+.item .content .Footer .control button {
+  position: relative;
+  width: 1px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px black;
+  background-color: transparent;
 }
 
 /* Control */
-.item .content .Footer .social{
-    position: relative;
-    display: flex;
-    width: 100%;
-    align-items: flex-end;
+.item .content .Footer .social {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
 }
 
 /* Force bruit */
-#basic-nav-dropdown2{
-    color: black;
+#basic-nav-dropdown2 {
+  color: black;
 }

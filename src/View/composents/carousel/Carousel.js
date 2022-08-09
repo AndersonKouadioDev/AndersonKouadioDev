@@ -84,7 +84,7 @@ export default function Carousel() {
     }
   ];
   return (
-    <>
+    <div>
       <OwlCarousel
         options={options}
        
@@ -99,6 +99,6 @@ export default function Carousel() {
           </ItemCarousel>
         ))}
       </OwlCarousel>
-    </>
+    </div>
   );
 }
