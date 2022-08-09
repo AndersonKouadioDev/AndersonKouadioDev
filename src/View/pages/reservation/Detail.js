@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect, useReducer, useRef } from 'react';
 import Header from '../../composents/header/Header';
 import Footer from '../../composents/footer/Footer2';
 import Calendar from '../../composents/calendar/Calendar';
@@ -30,9 +29,10 @@ import OwlCarousel from 'react-owl-carousel2';
 import CardMedia from '@mui/material/CardMedia';
 import { chambres } from '../../../data/db';
 import SnackBarSender from '../../composents/snackbar/SnackBarSender';
+import { FormSchema } from '../../../Validations/FormValidation';
+import emailjs from '@emailjs/browser';
 
 export default function Detail() {
-  const dispatch = useDispatch();
 
   let params = useParams();
 
@@ -40,7 +40,8 @@ export default function Detail() {
   // Get Chambres
   useEffect(() => {
     setSizeScreen(window.innerWidth);
-  }, [dispatch]);
+    window.scrollTo(0,0);
+  }, []);
 
   // Select a good chambre
   const chambre = chambres.find(
@@ -92,23 +93,55 @@ export default function Detail() {
 
   const handleChangeReservation = (event) => {
     setReservation({ [event.target.name]: event.target.value });
+
     setSnack('');
   };
 
+  const form = useRef();
+
   const [snack, setSnack] = useState('');
-  const handleValidate = (event) => {
+  const handleValidate = async (event) => {
     event.preventDefault();
-    if (
-      reservation.nom_prenoms &&
-      reservation.email &&
-      reservation.tel &&
-      reservation.date_debut &&
-      reservation.date_fin
-    ) {
-      setReservation(initialState);
-      setSnack(
-        <SnackBarSender message="Réservation prise en compte." etat="success" />
-      );
+    const isValid = await FormSchema.isValid(reservation);
+
+    if (isValid) {
+      console.log(form.current);
+      await emailjs
+        .sendForm(
+          'service_ljp0tif',
+          'template_f1vdgwn',
+          form.current,
+          'YzzNBgGzGygOXcDci'
+        )
+        .then(
+          () => {
+            setSnack(
+              <SnackBarSender
+                message="Réservation prise en compte."
+                etat="success"
+              />
+            );
+            setReservation(initialState);
+          },
+          () => {
+            setSnack(
+              <SnackBarSender
+                message="Un problème est survenu réserver plutard svp!"
+                etat="warning"
+              />
+            );
+          }
+        );
+      try {
+        await emailjs.sendForm(
+          'service_lbvsf8h',
+          'template_sndaeuc',
+          form.current,
+          'YzzNBgGzGygOXcDci'
+        );
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       setSnack(
         <SnackBarSender
@@ -306,6 +339,7 @@ export default function Detail() {
           </Col>
           <Col xs={12} sm={6} md={8}>
             <Box
+              ref={form}
               component="form"
               sx={{
                 '& .MuiTextField-root': { m: 1, width: '100%' },
@@ -360,6 +394,21 @@ export default function Detail() {
                   fullWidth
                 />
               </Box>
+              <input
+                style={{ display: 'none' }}
+                name="bien"
+                value={chambre.nom}
+              />
+              <input
+                style={{ display: 'none' }}
+                name="date_debut"
+                value={date_dcv.startDate}
+              />
+              <input
+                style={{ display: 'none' }}
+                name="date_fin"
+                value={date_dcv.endDate}
+              />
             </Box>
           </Col>
           <Col xs={12} sm={4} md={4}>

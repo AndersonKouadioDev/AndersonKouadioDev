@@ -1,0 +1,48 @@
+:root {
+    --vert : #6F7835;
+    --top : #8A7E66;
+    --disable : #CCC;
+}
+.team-member {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+.subtext{
+   color: #6F7835;
+  }
+  .team-member img {
+    width: 14rem;
+    height: 14rem;
+    border: 0.2rem solid #6F7835;
+  }
+  .team-member h4, .team-member .h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+  .page-section {
+    padding: 6rem 0;
+  }
+  .page-section h2.section-heading, .page-section .section-heading.h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .page-section h3.section-subheading, .page-section .section-subheading.h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-bottom: 4rem;
+  }
+  
+  @media (min-width: 768px) {
+    section {
+      padding: 9rem 0;
+    }
+  }
+  
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  }
+  

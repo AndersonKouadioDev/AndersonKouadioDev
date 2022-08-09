@@ -3,6 +3,7 @@
     --top : #8A7E66;
     --disable : #CCC;
 }
+
 .vert{
     background-color: var(--vert);
 }
@@ -11,7 +12,7 @@
 }
 .item{
     position: relative;
-    height: 500px;
+    height: 100vh;
     width: 100%;
     overflow: hidden;
 }
@@ -25,7 +26,6 @@
     z-index: 0;
 
 }
-
 /* ================================= Content ================================*/
 .item .content{
     position: absolute;
@@ -55,6 +55,10 @@
     text-decoration: none;
     color: white;
 }
+.item .content .menu .menu-item>a{
+    color: white;
+}
+
 .item .content .menu .menu-item:hover{
     font-weight: 900;
 }
@@ -103,25 +107,27 @@
 .item .content .Footer .title{
    position: relative;
    color: white;
-   width: 60%;
-   font-size: 4rem;
-   line-height: calc(4rem*1.1);
-   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-   text-shadow: 0px 0px 10px black;
+   width: 100%;
+   font-size: 3.7rem;
+   line-height: calc(4rem*1.4);
+   font-family:'Jour Script', 'Arial Narrow Bold', sans-serif;
+   text-shadow: 0px 0px 0px black,
+   0px 0px 5px black,
+   0px 0px 10px black;
+   margin-top: 50px;
 
 }
-
 /* Subtitle */
 .item .content .Footer .subtitle{
    position: relative;
    color: white;
-   font-size: 1rem;
-   margin-top: -10px;
+   font-size: 1.2rem;
+   margin-top: 50px;
    text-shadow: 0px 0px 10px black;
+   font-family: Helvetica, sans-serif;
+   font-size: 24px;
 }
-.item .content .Footer .subtitle .header{
-   font-size: 1.5rem;
-}
+
 /* Partie 2 */
 .item .content .Footer .partie2{
     position: relative;
@@ -155,3 +161,7 @@
     align-items: flex-end;
 }
 
+/* Force bruit */
+#basic-nav-dropdown2{
+    color: black;
+}

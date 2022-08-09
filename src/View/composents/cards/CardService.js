@@ -8,7 +8,7 @@ import CardActionArea from '@mui/material/CardActionArea';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 
-export default function CardService({ img, title }) {
+export default function CardService({ img, title}) {
   let navigate = useNavigate();
   function handleChange() {
     navigate('/biens_DCV', { replace: true });
@@ -25,6 +25,7 @@ export default function CardService({ img, title }) {
         backgroundColor: '#121212',
         border: '2px solid #6F7835',
       }}
+    
     >
       <CardActionArea>
         <CardMedia

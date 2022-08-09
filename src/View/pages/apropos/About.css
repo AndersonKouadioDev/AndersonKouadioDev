@@ -5,12 +5,6 @@
 }
 .aboutpage {
   position: relative;
-  width: 100%;
-  height: auto;
-  background-color: var(--vert);
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
 }
 .slogan {
   position: relative;
@@ -18,27 +12,7 @@
   min-height: 400px;
   background-color: rgba(0, 0, 0, 0.7);
 }
-.hotellerie {
-  position: relative;
-  width: 100%;
-  min-height: 400px;
-  background-color: rgb(255, 255, 255);
-  padding-top: 50px;
-}
-.reservation {
-  position: relative;
-  width: 100%;
-  min-height: 400px;
-  background-color: var(--vert);
-  padding-top: 50px;
-}
-.autre {
-  position: relative;
-  width: 100%;
-  min-height: 400px;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding-top: 50px;
-}
+
 .section {
   padding: 20px;
 }

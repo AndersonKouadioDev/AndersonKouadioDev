@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Header from '../../composents/header/Header';
 import Footer from '../../composents/footer/Footer2';
 import AppBar from '@mui/material/AppBar';
@@ -12,6 +12,9 @@ import Typography from '@mui/material/Typography';
 import { chambres, categories } from '../../../data/db';
 
 export default function FullWidthTabs() {
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, []);
   const [value, setValue] = useState(0);
   const selected_chambres = chambres.filter(
     (chambre) => chambre.categorie_id === categories[value].id
@@ -22,8 +25,8 @@ export default function FullWidthTabs() {
 
   return (
     <>
-      <Header title="NOS BIENS" back="/" />
-      <Box sx={{ bgcolor: 'background.paper', marginBottom: 5 }}>
+      <Header title="NOS BIENS" back="/" search={true}/>
+      <Box sx={{ bgcolor: 'background.paper'}}>
         <AppBar position="static" sx={{ backgroundColor: '#6F7835' }}>
           <Tabs
             value={value}

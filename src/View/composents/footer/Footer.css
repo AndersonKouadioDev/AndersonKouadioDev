@@ -54,7 +54,7 @@
   height: 45px;
   color: #000000;
   outline: none;
-  border-radius: 45px;
+  border-radius: 5px;
 }
 
 .info_section form input::-webkit-input-placeholder {
@@ -76,12 +76,6 @@
 .info_section form button {
   width: 100%;
   text-align: center;
-  display: inline-block;
-  padding: 10px 55px;
-  background-color: var(--top);
-  color: #ffffff;
-  border-radius: 45px;
-  border: 1px solid white;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   margin-top: 15px;

@@ -20,7 +20,6 @@ import MailIcon from '@mui/icons-material/Mail';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MenuIcon from '@mui/icons-material/Menu';
 export default function ItemCarousel({ title, subtitle, img, sticker }) {
-  
   const [sizeScreen, setSizeScreen] = useState(window.innerWidth);
   useEffect(() => {
     setSizeScreen(window.innerWidth);
@@ -71,7 +70,7 @@ export default function ItemCarousel({ title, subtitle, img, sticker }) {
                   alt="logo"
                 />
               </Col>
-              <Col>
+              <Col md={8}>
                 <Stack className="menu" direction="horizontal" gap={3}>
                   <NavLink
                     to="qui_sommes_nous"
@@ -81,6 +80,15 @@ export default function ItemCarousel({ title, subtitle, img, sticker }) {
                     }
                   >
                     Apropos du DCV
+                  </NavLink>
+                  <NavLink
+                    to="services"
+                    className="menu-item"
+                    style={({ isActive }) =>
+                      isActive ? isActiveStyle : undefined
+                    }
+                  >
+                  Nos Services
                   </NavLink>
                   <NavLink
                     to="/biens_DCV"
@@ -148,13 +156,27 @@ export default function ItemCarousel({ title, subtitle, img, sticker }) {
                       </MenuItem>
                     </Link>
                     <Link
-                      to="/biens_DCV"
-                      style={{  textDecoration:'none', color: 'white' }}
+                      to="services"
+                      style={{ textDecoration: 'none', color: 'black' }}
                     >
                       <MenuItem
                         onClick={handleClose}
                         style={{
-                          backgroundColor: '#6F7835', textAlign:'center'
+                          backgroundColor: 'white',
+                        }}
+                      >
+                       Nos Services
+                      </MenuItem>
+                    </Link>
+                    <Link
+                      to="/biens_DCV"
+                      style={{ textDecoration: 'none', color: 'white' }}
+                    >
+                      <MenuItem
+                        onClick={handleClose}
+                        style={{
+                          backgroundColor: '#6F7835',
+                          textAlign: 'center',
                         }}
                       >
                         Nos Biens
@@ -167,20 +189,37 @@ export default function ItemCarousel({ title, subtitle, img, sticker }) {
             </Row>
           )}
           <Row className="Footer">
-            <Col md={8}>
+            <Col md={10}>
               <Stack className="partie1" gap={4}>
-                <div className="etiquette" style={{display: sizeScreen < 500 && 'none'}}>
+                <div
+                  className="etiquette"
+                  style={{ display: sizeScreen < 500 && 'none' }}
+                >
                   DCV <span className="disable">{'>' + sticker}</span>
                 </div>
-                <div className="title" style={{textAlign:  sizeScreen < 500 && 'center', width:  sizeScreen < 500 && '100%',fontSize:  sizeScreen < 500 && '3rem'}}>{title}</div>
-                <div className="subtitle">
-                  <p className="header">{subtitle}</p>
+                <div
+                  className="title"
+                  style={{
+                    textAlign: sizeScreen < 500 && 'center',
+                    width: sizeScreen < 500 && '100%',
+                    fontSize: sizeScreen < 500 && '3rem',
+                  }}
+                >
+                  {title}
+                </div>
+                <div className="subtitle"  style={{
+                    textAlign: sizeScreen < 500 && 'center'
+                  }}>
+                  <p>{subtitle}</p>
                 </div>
               </Stack>
             </Col>
             <Col>
               <div className="partie2">
-                <Stack className="social" direction={ sizeScreen < 500 && 'horizontal'}>
+                <Stack
+                  className="social"
+                  direction={sizeScreen < 500 && 'horizontal'}
+                >
                   <a
                     href="https://www.facebook.com/domainedelacouleeverte"
                     target="_blank"

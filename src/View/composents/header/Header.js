@@ -10,7 +10,8 @@ import InputBase from '@mui/material/InputBase';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';
-import logo from '../../../images/logo.jpg'
+import logo from '../../../images/logo.jpg';
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -53,7 +54,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Header({ title, back }) {
+export default function Header({ title, back, search = false }) {
   const styleHeader = {
     backgroundColor: '#6F7835',
     '&:hover': {
@@ -61,18 +62,13 @@ export default function Header({ title, back }) {
     },
   };
   let navigate = useNavigate();
-  
+
   function handleChange() {
     navigate(back, { replace: true });
   }
   return (
     <Box sx={{ flexGrow: 1 }} style={{ boxShadow: '0px 0px 10px #00000016' }}>
-      <AppBar
-        position="static"
-        style={styleHeader}
-        className="img"
-        sx={{ backgroundImage: 'url(assets/images/carousel/c1.jpg)' }}
-      >
+      <AppBar position="static" style={styleHeader}>
         <Toolbar style={{ height: 'auto' }}>
           <IconButton
             size="large"
@@ -95,19 +91,23 @@ export default function Header({ title, back }) {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 1, display: { xs: search ? 'none':'block'} }}
           >
-            {title}
+            {title.toUpperCase()}
           </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Rechercher…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+          {search ? (
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Rechercher…"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+          ) : (
+            ''
+          )}
         </Toolbar>
       </AppBar>
     </Box>
